@@ -1,7 +1,8 @@
 <style>
-    .col {
+    .action-col {
         margin: 10px 0px 10px 0px;
         padding: 0px;
+        text-align: center;
     }
     .profile-cover{
         height: 130px;
@@ -20,7 +21,10 @@
             <img src="assets/imgs/face-placeholder.png"/>
         </ion-avatar>
         <h2>Md. Mahadi Hasan</h2>
-        <p>Human Resource Manager</p>
+        <p>
+            <span>Assistant Manager</span>
+            <span>, HR</span>
+        </p>
         <p>Bheramara 360MW Power plant</p>
         <ion-badge color="light">Blood Group A-</ion-badge>
     </ion-item>
@@ -29,18 +33,18 @@
     <ion-card-content>
         <ion-row justify-content-center align-items-center>
 
-            <ion-col text-center style=" border-right: 1px solid lightgrey">
+            <ion-col class="action-col" style=" border-right: 1px solid lightgrey">
                 <ion-icon name="md-add"></ion-icon>
                 <span style="display: block">save</span>
             </ion-col>
 
 
-            <ion-col text-center style=" border-right: 1px solid lightgrey">
+            <ion-col class="action-col" style=" border-right: 1px solid lightgrey">
                 <ion-icon name="md-heart"></ion-icon>
                 <span style="display: block">favorite</span>
             </ion-col>
 
-            <ion-col text-center>
+            <ion-col class="action-col">
                 <ion-icon name="md-share"></ion-icon>
                 <span style="display: block">share</span>
             </ion-col>
