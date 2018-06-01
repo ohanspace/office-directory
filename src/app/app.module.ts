@@ -13,6 +13,7 @@ import {ProfilePage} from "../pages/profile/profile";
 import {OfficeManagePage} from "../pages/office-manage/office-manage";
 import { OfficeServiceProvider } from '../providers/office-service/office-service';
 import {MapValuesPipe} from "../pipes/map-values/map-values";
+import {OfficeRepositoryFb} from "../providers/office-service/office-repository.fb";
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import {MapValuesPipe} from "../pipes/map-values/map-values";
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     OfficeServiceProvider,
+      OfficeRepositoryFb
   ]
 })
 export class AppModule {}

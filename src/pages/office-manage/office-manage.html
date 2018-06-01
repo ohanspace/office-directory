@@ -6,21 +6,35 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>Manage Offices</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
 
-  <ion-list>
-    <ion-item *ngFor="let office of officesMap | mapValues">
+  <ion-item-group reorder="true" (ionItemReorder)="reorderItems($event)">
+    <ion-item *ngFor="let office of offices">
+      <ion-card>
 
-      <h2>{{office.name}}</h2>
-      <p>{{office.type.name}}</p>
+        <ion-card-header>
+          {{office.name}}
+        </ion-card-header>
+
+        <ion-card-content>
+          <ion-badge color="light">{{office.type.name}}</ion-badge>
+        </ion-card-content>
+      </ion-card>
     </ion-item>
-  </ion-list>
+  </ion-item-group>
+
+  <!--add button-->
+  <ion-fab bottom right>
+    <button ion-fab  mini>
+      <ion-icon name="md-add"></ion-icon>
+    </button>
+  </ion-fab>
 
 </ion-content>
