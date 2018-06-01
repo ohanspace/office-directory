@@ -2,7 +2,7 @@ import {Office} from "../../models/office";
 import {OfficeType} from "../../models/office-type";
 import {OfficeFb} from "../../models/office.fb";
 
-export class OfficeTransformer {
+export class OfficeTransformer{
     static officeTypesMap = new Map([
         ['corporate', new OfficeType('corporate', 'Corporate Office')],
         ['plant', new OfficeType('plant', 'Power Plant')],

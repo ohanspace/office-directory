@@ -14,12 +14,18 @@ import {OfficeManagePage} from "../pages/office-manage/office-manage";
 import { OfficeServiceProvider } from '../providers/office-service/office-service';
 import {MapValuesPipe} from "../pipes/map-values/map-values";
 import {OfficeRepositoryFb} from "../providers/office-service/office-repository.fb";
+import {ProfileListPage} from "../pages/profile-list/profile-list";
+import { ProfileServiceProvider } from '../providers/profile-service/profile-service';
+import { DesignationServiceProvider } from '../providers/designation-service/designation-service';
+import { DepartmentServiceProvider } from '../providers/department-service/department-service';
+import { PostServiceProvider } from '../providers/post-service/post-service';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     ProfilePage,
+    ProfileListPage,
     ListPage,
     OfficeManagePage,
     MapValuesPipe
@@ -35,14 +41,19 @@ import {OfficeRepositoryFb} from "../providers/office-service/office-repository.
     HomePage,
     ProfilePage,
     ListPage,
-    OfficeManagePage
+    OfficeManagePage,
+    ProfileListPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     OfficeServiceProvider,
-      OfficeRepositoryFb
+    OfficeRepositoryFb,
+    ProfileServiceProvider,
+    DesignationServiceProvider,
+    DepartmentServiceProvider,
+    PostServiceProvider
   ]
 })
 export class AppModule {}

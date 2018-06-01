@@ -10,9 +10,9 @@ import {BehaviorSubject} from "rxjs/BehaviorSubject";
 @Injectable()
 export class OfficeRepositoryFb {
     data$ = new BehaviorSubject([
-        {id: 'corporateoffice', name:"Corporate Office", typeId: "corporate"},
-        {id: 'bheramara', name:"Bheramara 410 MW Combined Cycle Power Plant", typeId: "plant"},
-        {id: 'sirajgonj-project', name:"Sirajganj 225 MW CCPP (2nd unit-Dual Fuel) Project", typeId: "project"},
+        {id: '1', name:"Corporate Office", typeId: "corporate"},
+        {id: '2', name:"Bheramara 410 MW Combined Cycle Power Plant", typeId: "plant"},
+        {id: '3', name:"Sirajganj 225 MW CCPP (2nd unit-Dual Fuel) Project", typeId: "project"},
     ]);
     offices: Observable<Office[]>;
 
