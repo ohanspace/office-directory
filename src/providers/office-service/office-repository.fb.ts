@@ -19,12 +19,12 @@ export class OfficeRepositoryFb {
     public getAll(): Observable<Office[]> {
 
         return this.data$.map(data =>
-            OfficeTransformer.toDomainModelArray(data)
+            (new OfficeTransformer).toDomainModelArray(data)
         )
     }
 
     public saveAll(offices: Office[]){
-        let officesFb = OfficeTransformer.toFbModelArray(offices);
+        let officesFb = (new OfficeTransformer).toFbModelArray(offices);
         this.data$.next(officesFb);
     }
 }

@@ -16,7 +16,7 @@ export abstract class Transformer<D,F> {
     toFbModelArray(inArr: D[]): F[] {
         let outArr = [];
         for(let i = 0; i < inArr.length; i++){
-            let f = this.toDomainModel(inArr[i]);
+            let f = this.toFbModel(inArr[i]);
             outArr.push(f);
         }
 
