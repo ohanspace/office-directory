@@ -11,12 +11,16 @@ export class OfficeServiceProvider {
     console.log("office service constructed");
   }
 
-  public get offices$() : Observable<Office[]> {
+  public getAll() : Observable<Office[]> {
      return this.officeRepoFb.getAll();
   }
 
-  public saveAllOffices(offices: Office[]) {
+  public saveAll(offices: Office[]) {
       this.officeRepoFb.saveAll(offices);
+  }
+
+  public getById(id: string): Observable<Office> {
+      return this.officeRepoFb.getById(id);
   }
 
 

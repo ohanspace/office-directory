@@ -18,14 +18,14 @@ export class OfficeManagePage {
   }
 
   ionViewDidLoad() {
-      this.officeService.offices$.subscribe(offices =>
+      this.officeService.getAll().subscribe(offices =>
           this.offices = offices
       );
   }
 
   reorderItems(indexes) {
     this.offices = reorderArray(this.offices, indexes);
-    this.officeService.saveAllOffices(this.offices);
+    this.officeService.saveAll(this.offices);
   }
 
 }
