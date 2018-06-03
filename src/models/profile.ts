@@ -34,6 +34,11 @@ export class Profile {
         return this._name;
     }
 
+
+    get post(): Post {
+        return this._post;
+    }
+
     set id(value: string) {
         this._id = value;
     }

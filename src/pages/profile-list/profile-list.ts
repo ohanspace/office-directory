@@ -2,13 +2,8 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import {ProfileServiceProvider} from "../../providers/profile-service/profile-service";
 import {Profile} from "../../models/profile";
+import {ProfilePage} from "../profile/profile";
 
-/**
- * Generated class for the ProfileListPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @Component({
   selector: 'page-profile-list',
@@ -25,6 +20,13 @@ export class ProfileListPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfileListPage');
     this.profileService.getAll().subscribe(profiles => this.profiles = profiles);
+  }
+
+  onClickProfile(profile: Profile) {
+    this.navCtrl.push(ProfilePage, {
+      profile: profile
+    });
+
   }
 
 }

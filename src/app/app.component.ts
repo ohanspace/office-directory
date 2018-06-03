@@ -29,7 +29,6 @@ export class MyApp {
         { title: 'Office Manage', component: OfficeManagePage },
         { title: 'Profile List', component: ProfileListPage },
         { title: 'Home', component: HomePage },
-        { title: 'Profile', component: ProfilePage },
         { title: 'List', component: ListPage }
     ];
 

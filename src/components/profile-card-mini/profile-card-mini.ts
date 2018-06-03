@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
+import {Profile} from "../../models/profile";
 
 /**
  * Generated class for the ProfileCardMiniComponent component.
@@ -11,12 +12,14 @@ import { Component } from '@angular/core';
   templateUrl: 'profile-card-mini.html'
 })
 export class ProfileCardMiniComponent {
-
-  text: string;
+  @Input() profile: Profile;
 
   constructor() {
-    console.log('Hello ProfileCardMiniComponent Component');
-    this.text = 'Hello World';
+
+  }
+
+  onCardClick() {
+
   }
 
 }

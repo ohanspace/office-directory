@@ -1,22 +1,14 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
+import {Profile} from "../../models/profile";
 
-/**
- * Generated class for the ProfileCardComponent component.
- *
- * See https://angular.io/api/core/Component for more info on Angular
- * Components.
- */
 @Component({
   selector: 'profile-card',
   templateUrl: 'profile-card.html'
 })
 export class ProfileCardComponent {
-
-  text: string;
+  @Input() profile: Profile;
 
   constructor() {
-    console.log('Hello ProfileCardComponent Component');
-    this.text = 'Hello World';
   }
 
 }
