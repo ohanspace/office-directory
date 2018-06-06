@@ -33,7 +33,9 @@
     <ion-card-content>
         <ion-row justify-content-center align-items-center>
 
-            <ion-col class="action-col" style=" border-right: 1px solid lightgrey">
+            <ion-col class="action-col"
+                     (click)="saveContact()"
+                     style=" border-right: 1px solid lightgrey">
                 <ion-icon name="md-add"></ion-icon>
                 <span style="display: block">save</span>
             </ion-col>
@@ -55,7 +57,7 @@
 
     <ion-item-group style="width: 100%">
         <ion-list-header color="light">Contact</ion-list-header>
-        <ion-item>
+        <ion-item (click)="callToNumber('01922503521')">
             01922503521
             <p>mobile</p>
             <ion-icon name="ios-call-outline" item-right></ion-icon>

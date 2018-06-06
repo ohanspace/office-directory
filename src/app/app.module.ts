@@ -27,6 +27,8 @@ import {OfficeTransformer} from "../providers/office-service/office-transformer"
 import {ProfileRepositoryFb} from "../providers/profile-service/profile-repository.fb";
 import {DesignationRepositoryFb} from "../providers/designation-service/designation-repository.fb";
 import {DepartmentRepositoryFb} from "../providers/department-service/department-repository.fb";
+import {CallNumber} from "@ionic-native/call-number";
+import {Contacts} from "@ionic-native/contacts";
 
 @NgModule({
   declarations: [
@@ -56,6 +58,9 @@ import {DepartmentRepositoryFb} from "../providers/department-service/department
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+    CallNumber,
+    Contacts,
+
     OfficeServiceProvider,
     OfficeRepositoryFb,
     OfficeTransformer,
