@@ -1,0 +1,141 @@
+<style>
+  .avatar {
+    height: 40px;
+    width: 40px;
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 10px;
+  }
+
+  .select {
+    max-width: 100% !important;
+    width: 100%;
+    padding-left: 8px;
+  }
+</style>
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>employee-create</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+    <ion-item-group>
+      <ion-avatar class="avatar">
+        <img src="assets/imgs/face-placeholder.png"/>
+      </ion-avatar>
+
+      <ion-item>
+        <ion-input type="text" value="" placeholder="Name"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type="text" value="" placeholder="Employee Id"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-select class="select" placeholder="Blood Group">
+          <ion-option value="A+">A+</ion-option>
+        </ion-select>
+      </ion-item>
+
+
+    </ion-item-group>
+
+
+  <!--in charge-->
+
+  <ion-item-group style="width: 100%">
+    <ion-list-header color="light">In Charge</ion-list-header>
+
+    <ion-item >
+      <ion-select class="select" placeholder="Office" >
+        <ion-option value="nes">NES</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item >
+      <ion-select class="select" placeholder="Department" >
+        <ion-option value="nes">NES</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item >
+      <ion-select class="select" placeholder="Designation" >
+        <ion-option value="nes">NES</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Has additional charge?</ion-label>
+
+      <ion-checkbox item-end [checked]="hasAdditionalCharge"
+                    (click)="hasAdditionalCharge = !hasAdditionalCharge">
+      </ion-checkbox>
+
+    </ion-item>
+  </ion-item-group>
+
+
+  <!--additional charge-->
+
+  <ion-item-group style="width: 100%" *ngIf="hasAdditionalCharge">
+    <ion-list-header color="light">Additional Charge</ion-list-header>
+
+    <ion-item >
+      <ion-select class="select" placeholder="Office" >
+        <ion-option value="nes">NES</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item >
+      <ion-select class="select" placeholder="Department" >
+        <ion-option value="nes">NES</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item >
+      <ion-select class="select" placeholder="Designation" >
+        <ion-option value="nes">NES</ion-option>
+      </ion-select>
+    </ion-item>
+
+  </ion-item-group>
+
+  <!--contact-->
+  <ion-item-group>
+    <ion-list-header color="light">Contact</ion-list-header>
+
+
+    <ion-item *ngFor="let phone of phones; let i = index">
+      <ion-input placeholder="Phone"
+                 [(ngModel)] = "phones[i].value"
+                 value="{{phone.value}}"
+                 (ionChange)="onChangePhone()"
+      >
+
+      </ion-input>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-input placeholder="Email"></ion-input>
+    </ion-item>
+
+  </ion-item-group>
+
+  <!--address-->
+  <ion-item-group>
+    <ion-list-header color="light">Address</ion-list-header>
+    <ion-item>
+      <ion-input placeholder="Home"></ion-input>
+    </ion-item>
+
+  </ion-item-group>
+
+
+</ion-content>

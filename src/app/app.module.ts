@@ -29,6 +29,7 @@ import {DesignationRepositoryFb} from "../providers/designation-service/designat
 import {DepartmentRepositoryFb} from "../providers/department-service/department-repository.fb";
 import {CallNumber} from "@ionic-native/call-number";
 import {Contacts} from "@ionic-native/contacts";
+import {EmployeeCreatePage} from "../pages/employee-create/employee-create";
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import {Contacts} from "@ionic-native/contacts";
     ProfileListPage,
     ListPage,
     OfficeManagePage,
+    EmployeeCreatePage,
     MapValuesPipe
   ],
   imports: [
@@ -52,7 +54,8 @@ import {Contacts} from "@ionic-native/contacts";
     ProfilePage,
     ListPage,
     OfficeManagePage,
-    ProfileListPage
+    ProfileListPage,
+    EmployeeCreatePage
   ],
   providers: [
     StatusBar,
