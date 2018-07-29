@@ -4,11 +4,10 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
-import {ProfilePage} from "../pages/profile/profile";
 import {OfficeManagePage} from "../pages/office-manage/office-manage";
 import {ProfileListPage} from "../pages/profile-list/profile-list";
 import {EmployeeCreatePage} from "../pages/employee-create/employee-create";
+import {OfficeListPage} from "../pages/office-list/office-list";
 
 @Component({
   templateUrl: 'app.html'
@@ -16,7 +15,7 @@ import {EmployeeCreatePage} from "../pages/employee-create/employee-create";
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = EmployeeCreatePage;
+  rootPage: any = OfficeListPage;
 
   pages: Array<{title: string, component: any}>;
 
@@ -27,10 +26,10 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
+        { title: 'Office List', component: OfficeListPage },
         { title: 'Office Manage', component: OfficeManagePage },
         { title: 'Profile List', component: ProfileListPage },
         { title: 'Home', component: HomePage },
-        { title: 'List', component: ListPage }
     ];
 
   }

@@ -1,4 +1,4 @@
-import {EmployeeDTO} from "./models/employee.dto";
+import {ProfileDTO} from "./models/profile.dto";
 import {Post} from "./models/post";
 import {OfficeDTO} from "./models/office.dto";
 import {Office} from "./models/office";
@@ -7,18 +7,17 @@ import {DesignationDTO} from "./models/designation.dto";
 import {Designation} from "./models/designation";
 import {DepartmentDTO} from "./models/department.dto";
 import {Department} from "./models/department";
-import {Employee} from "./models/employee";
-import {OfficeTypeDTO} from "./models/office-type.dto";
+import {Profile} from "./models/profile";
 
 export class OfficeFactory {
     static officeWithEmployeesFromDTOs() {
 
     }
 
-    static employeeFromDTO(employeeDTO: EmployeeDTO,
+    static employeeFromDTO(employeeDTO: ProfileDTO,
                            post: Post,
-                           additionalPost?: Post): Employee {
-        let employee = new Employee();
+                           additionalPost?: Post): Profile {
+        let employee = new Profile();
         employee.id = employeeDTO.id;
         employee.name = employeeDTO.name;
         employee.mobile = employeeDTO.mobile;
@@ -28,12 +27,7 @@ export class OfficeFactory {
     }
 
 
-    static officeTypeDTOtoOfficeType(officeTypeDTO: OfficeTypeDTO): OfficeType {
-        let officeType = new OfficeType();
-        officeType.id = officeTypeDTO.id;
-        officeType.name = officeTypeDTO.name;
-        return officeType;
-    }
+
 
     static officeDTOToOffice(officeDto: OfficeDTO, officeType: OfficeType): Office {
         let office = new Office();

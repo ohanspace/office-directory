@@ -1,6 +1,6 @@
-import {Department} from "../../models/department";
-import {Designation} from "../../models/designation";
-import {Office} from "../../models/office";
+import {Department} from "./department";
+import {Designation} from "./designation";
+import {Office} from "./office";
 
 export class Post {
     office: Office;

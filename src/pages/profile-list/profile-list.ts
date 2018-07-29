@@ -1,8 +1,7 @@
-import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
-import {ProfileServiceProvider} from "../../providers/profile-service/profile-service";
-import {Profile} from "../../models/profile";
+import {Component} from '@angular/core';
+import {NavController} from 'ionic-angular';
 import {ProfilePage} from "../profile/profile";
+import {Profile} from "../../core/models/profile";
 
 
 @Component({
@@ -12,14 +11,11 @@ import {ProfilePage} from "../profile/profile";
 export class ProfileListPage {
   profiles: Profile[] = [];
 
-  constructor(public navCtrl: NavController,
-              public navParams: NavParams,
-              public profileService: ProfileServiceProvider) {
+  constructor(public navCtrl: NavController) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ProfileListPage');
-    this.profileService.getAll().subscribe(profiles => this.profiles = profiles);
+
   }
 
   onClickProfile(profile: Profile) {

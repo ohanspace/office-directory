@@ -1,0 +1,26 @@
+
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>office-list</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-item-group>
+    <ion-item *ngFor="let office of offices">
+      <ion-card>
+
+        <ion-card-header>
+          {{office.name}}
+        </ion-card-header>
+
+        <ion-card-content>
+          <ion-badge color="light">{{office.type.name}}</ion-badge>
+        </ion-card-content>
+      </ion-card>
+    </ion-item>
+  </ion-item-group>
+</ion-content>

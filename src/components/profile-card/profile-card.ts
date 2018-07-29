@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {Profile} from "../../models/profile";
+import {Profile} from "../../core/models/profile";
 import {CallNumber} from "@ionic-native/call-number";
 import {Contacts, Contact, ContactName, ContactField} from '@ionic-native/contacts';
 import {ToastController} from "ionic-angular";

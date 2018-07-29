@@ -1,6 +1,6 @@
 import {PostDTO} from "./post.dto";
 
-export class EmployeeDTO {
+export class ProfileDTO {
     id: string;
     name: string;
     mobile: string;
