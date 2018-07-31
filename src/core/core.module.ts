@@ -6,6 +6,7 @@ import {AngularFirestoreModule} from 'angularfire2/firestore';
 import {AngularFireAuthModule} from 'angularfire2/auth';
 import {AngularFireStorageModule} from 'angularfire2/storage';
 import {OfficeController} from "./controllers/office-controller";
+import {ProfileController} from "./controllers/profile-controller";
 
 const firebaseConfig = {
     apiKey: "AIzaSyBT6nR9o4MkwAr6ysLUqdQYCEQ3iLUFaUc",
@@ -25,7 +26,8 @@ const firebaseConfig = {
     ],
     providers: [
         { provide: DataRepository, useClass: FirebaseDataRepository},
-        OfficeController
+        OfficeController,
+        ProfileController
     ]
 })
 export class CoreModule {}

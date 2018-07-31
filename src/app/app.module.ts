@@ -15,26 +15,38 @@ import {ProfileListPage} from "../pages/profile-list/profile-list";
 
 import {CallNumber} from "@ionic-native/call-number";
 import {Contacts} from "@ionic-native/contacts";
-import {EmployeeCreatePage} from "../pages/employee-create/employee-create";
-import {OfficeListPage} from "../pages/office-list/office-list";
+import {OfficeListPage} from "../features/office/office-list/office-list";
 import {CoreModule} from "../core/core.module";
+import {OfficePage} from "../pages/office/office";
+import {DepartmentListPage} from "../features/department/department-list/department-list";
+import {DepartmentSaveModalPage} from "../features/department/department-save-modal/department-save-modal";
+import {FlexLayoutModule} from "@angular/flex-layout";
+import {DesignationListPage} from "../features/designation/designation-list/designation-list";
+import {DesignationSaveModalPage} from "../features/designation/designation-save-modal/designation-save-modal";
+import {OfficeSaveModalPage} from "../features/office/office-save-modal/office-save-modal";
 
 @NgModule({
     declarations: [
         MyApp,
+        MapValuesPipe,
         HomePage,
         ProfilePage,
         ProfileListPage,
         OfficeManagePage,
-        EmployeeCreatePage,
         OfficeListPage,
-        MapValuesPipe
+        OfficeSaveModalPage,
+        OfficePage,
+        DepartmentListPage,
+        DepartmentSaveModalPage,
+        DesignationListPage,
+        DesignationSaveModalPage
     ],
     imports: [
         BrowserModule,
         ComponentsModule,
         IonicModule.forRoot(MyApp),
-        CoreModule
+        CoreModule,
+        FlexLayoutModule
     ],
     bootstrap: [IonicApp],
     entryComponents: [
@@ -44,7 +56,12 @@ import {CoreModule} from "../core/core.module";
         OfficeManagePage,
         ProfileListPage,
         OfficeListPage,
-        EmployeeCreatePage
+        OfficeSaveModalPage,
+        OfficePage,
+        DepartmentListPage,
+        DepartmentSaveModalPage,
+        DesignationListPage,
+        DesignationSaveModalPage
     ],
     providers: [
         StatusBar,

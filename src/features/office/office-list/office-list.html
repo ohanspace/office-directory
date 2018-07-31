@@ -1,0 +1,46 @@
+<ion-header>
+
+    <ion-navbar color="primary">
+        <ion-title>office-list</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-item-group>
+        <ion-item *ngFor="let office of offices">
+            <ion-card>
+
+                <ion-card-header>
+                    {{office.name}}
+
+
+                </ion-card-header>
+
+                <ion-card-content>
+                    <ion-badge color="light">{{office.type}}</ion-badge>
+
+
+                </ion-card-content>
+            </ion-card>
+
+
+            <!--actions-->
+            <div item-end>
+                <ion-icon name="create"
+                          (click)="editOffice(office)"></ion-icon>
+                <ion-icon name="close"
+                          (click)="removeOfficeAlert(office.id)"></ion-icon>
+            </div>
+
+        </ion-item>
+    </ion-item-group>
+
+    <ion-fab bottom="" right="">
+        <button ion-fab mini (click)="addNewOffice()">
+            <ion-icon name="md-add"></ion-icon>
+        </button>
+    </ion-fab>
+
+</ion-content>

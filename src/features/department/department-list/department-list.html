@@ -1,0 +1,28 @@
+<ion-header>
+
+    <ion-navbar color="primary">
+        <ion-title>All departments</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-list>
+        <ion-item *ngFor="let department of departments">
+            <h3>{{department.name}}</h3>
+            <ion-icon name="create"
+                      item-end
+                      (click)="editDepartment(department)"></ion-icon>
+            <ion-icon name="close"
+                      item-end
+                      (click)="removeDepartmentAlert(department.id)"></ion-icon>
+        </ion-item>
+    </ion-list>
+
+    <ion-fab bottom="" right="">
+        <button ion-fab mini (click)="addNewDepartment()">
+            <ion-icon name="md-add"></ion-icon>
+        </button>
+    </ion-fab>
+</ion-content>

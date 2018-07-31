@@ -1,0 +1,36 @@
+
+
+<ion-header>
+
+    <ion-navbar color="primary">
+        <ion-title>Create or Update Department</ion-title>
+        <ion-buttons end>
+            <button ion-button (click)="close()">
+                <ion-icon name="close"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding style="height: 100%" >
+    <div fxLayout="column"  style="height: 100%">
+        <div fxFlex="20"></div>
+        <form #f (ngSubmit)="save()">
+            <!--name-->
+            <ion-item>
+                <ion-label>Name</ion-label>
+                <ion-input type="text"
+                           name="name" [(ngModel)]="departmentDTO.name"
+                           placeholder="Name"
+                           required>
+
+                </ion-input>
+            </ion-item>
+
+            <button type="submit" ion-button block>Save</button>
+        </form>
+    </div>
+
+</ion-content>

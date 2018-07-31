@@ -1,8 +1,13 @@
-import {OfficeType} from "./office-type";
+import {Profile} from "./profile";
 
 export class Office {
     id: string;
     name: string;
-    type?: OfficeType;
+    type?: string;
+
+    profiles?: Profile[];
+    setProfiles(profiles: Profile[]){
+        this.profiles = profiles;
+    }
 }
 

@@ -1,5 +1,5 @@
 export class PostDTO {
-    officeId: string;
-    designationId: string;
-    departmentId?: string;
+    office: {id: string, name: string};
+    designation: {id: string, name: string};
+    department: {id: string, name: string};
 }

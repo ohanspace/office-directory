@@ -7,7 +7,9 @@ import { HomePage } from '../pages/home/home';
 import {OfficeManagePage} from "../pages/office-manage/office-manage";
 import {ProfileListPage} from "../pages/profile-list/profile-list";
 import {EmployeeCreatePage} from "../pages/employee-create/employee-create";
-import {OfficeListPage} from "../pages/office-list/office-list";
+import {OfficeListPage} from "../features/office/office-list/office-list";
+import {DepartmentListPage} from "../features/department/department-list/department-list";
+import {DesignationListPage} from "../features/designation/designation-list/designation-list";
 
 @Component({
   templateUrl: 'app.html'
@@ -15,7 +17,7 @@ import {OfficeListPage} from "../pages/office-list/office-list";
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = OfficeListPage;
+  rootPage: any = DepartmentListPage;
 
   pages: Array<{title: string, component: any}>;
 
@@ -27,6 +29,8 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
         { title: 'Office List', component: OfficeListPage },
+        { title: 'Designation List', component: DesignationListPage },
+        { title: 'Department List', component: DepartmentListPage },
         { title: 'Office Manage', component: OfficeManagePage },
         { title: 'Profile List', component: ProfileListPage },
         { title: 'Home', component: HomePage },

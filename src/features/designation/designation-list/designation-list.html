@@ -1,0 +1,28 @@
+<ion-header>
+
+    <ion-navbar color="primary">
+        <ion-title>All Designations</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-list>
+        <ion-item *ngFor="let designation of designations">
+            <h3>{{designation.name}}</h3>
+            <ion-icon name="create"
+                      item-end
+                      (click)="editDesignation(designation)"></ion-icon>
+            <ion-icon name="close"
+                      item-end
+                      (click)="removeDesignationAlert(designation.id)"></ion-icon>
+        </ion-item>
+    </ion-list>
+
+    <ion-fab bottom="" right="">
+        <button ion-fab mini (click)="addNewDesignation()">
+            <ion-icon name="md-add"></ion-icon>
+        </button>
+    </ion-fab>
+</ion-content>
