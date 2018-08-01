@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {AlertController, ModalController, NavController, NavParams} from 'ionic-angular';
+import {AlertController, ModalController, NavController, NavParams, reorderArray} from 'ionic-angular';
 import {Office} from "../../../core/models/office";
 import {OfficeController} from "../../../core/controllers/office-controller";
 import {OfficeSaveModalPage} from "../office-save-modal/office-save-modal";
@@ -19,9 +19,16 @@ export class OfficeListPage {
                 private alertCtrl: AlertController,
                 private officeCtrl: OfficeController) {
 
-        this.officeCtrl.getAllOffices$().subscribe(depts => {
-            this.offices = depts;
+        this.officeCtrl.getAllOffices$().subscribe(offices => {
+            this.offices = offices;
+            console.log(this.offices);
         });
+    }
+
+    reorderItems(indexes) {
+        this.offices = reorderArray(this.offices, indexes);
+        this.officeCtrl.reorderOffices(this.offices, indexes.from, indexes.to);
+        console.log(indexes);
     }
 
 

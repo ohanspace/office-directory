@@ -29,6 +29,7 @@ export class FirebaseDataRepository extends DataRepository {
                     office.id = ofcData.id;
                     office.name = ofcData.name;
                     office.type = ofcData.type;
+                    office.order = ofcData.order || null;
                     return office;
                 })
             });

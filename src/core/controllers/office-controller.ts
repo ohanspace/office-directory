@@ -26,7 +26,11 @@ export class OfficeController {
     }
 
     getAllOffices$(): Observable<Office[]> {
-        return this.repo.getAllOffices$();
+        return this.repo.getAllOffices$().map(offices => {
+            return offices.sort((obj1,obj2) => {
+                return obj1.order - obj2.order;
+            })
+        });
     }
 
     saveOffice(officeDTO: OfficeDTO): Promise<void> {
@@ -35,6 +39,23 @@ export class OfficeController {
 
     removeOffice(officeId: string): Promise<void> {
         return this.repo.removeOffice(officeId);
+    }
+
+    reorderOffices(offices: Office[], from: number, to: number) {
+        let lowerIndex, higherIndex;
+        if (from < to) {
+            lowerIndex = from;
+            higherIndex = to;
+        }else {
+            lowerIndex = to;
+            higherIndex = from;
+        }
+
+        for(let i = lowerIndex; i <= higherIndex; i++){
+            offices[i].order = i;
+            this.saveOffice(offices[i]);
+        }
+
     }
 
 

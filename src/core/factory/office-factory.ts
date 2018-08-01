@@ -22,6 +22,7 @@ export class OfficeFactory {
         officeDTO.id = null;
         officeDTO.name = null;
         officeDTO.type = null;
+        officeDTO.order = null;
         return officeDTO;
     }
 
