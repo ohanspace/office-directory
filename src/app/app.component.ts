@@ -1,12 +1,11 @@
-import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform } from 'ionic-angular';
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
+import {Component, ViewChild} from '@angular/core';
+import {Nav, Platform} from 'ionic-angular';
+import {StatusBar} from '@ionic-native/status-bar';
+import {SplashScreen} from '@ionic-native/splash-screen';
 
-import { HomePage } from '../pages/home/home';
+import {HomePage} from '../pages/home/home';
 import {OfficeManagePage} from "../pages/office-manage/office-manage";
 import {ProfileListPage} from "../pages/profile-list/profile-list";
-import {EmployeeCreatePage} from "../pages/employee-create/employee-create";
 import {OfficeListPage} from "../features/office/office-list/office-list";
 import {DepartmentListPage} from "../features/department/department-list/department-list";
 import {DesignationListPage} from "../features/designation/designation-list/designation-list";
@@ -17,7 +16,7 @@ import {DesignationListPage} from "../features/designation/designation-list/desi
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = DepartmentListPage;
+  rootPage: any = OfficeListPage;
 
   pages: Array<{title: string, component: any}>;
 

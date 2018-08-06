@@ -4,5 +4,5 @@
     </ion-navbar>
 </ion-header>
 <ion-content>
-<profile-card [profile]="profile"></profile-card>
+    <profile-card [profile]="profile" *ngIf="profile"></profile-card>
 </ion-content>

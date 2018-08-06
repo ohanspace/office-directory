@@ -61,18 +61,11 @@ export class OfficeController {
 
 
     getOfficeById$(officeId: string): Observable<Office> {
-        return this.repo.getOfficeById$(officeId).map(officeDTO => {
-            if (officeDTO) {
-                return <Office> officeDTO;
-            }else {
-                of(null);
-            }
-        });
+        return this.repo.getOfficeById$(officeId);
     }
 
     getOfficeWithProfiles$(officeId: string): Observable<Office> {
-        return this.repo.getOfficeById$(officeId).switchMap(ofcDTO => {
-            let ofc = OfficeFactory.officeDTOToOffice(ofcDTO);
+        return this.repo.getOfficeById$(officeId).switchMap(ofc => {
             return this.profileCtrl.getProfilesByOfficeId$(ofc.id).map(profiles => {
                 ofc.setProfiles(profiles);
                 return ofc;

@@ -1,0 +1,205 @@
+<style>
+    .avatar {
+        height: 40px;
+        width: 40px;
+        margin: auto;
+        margin-top: 15px;
+        margin-bottom: 10px;
+    }
+
+    .select {
+        max-width: 100% !important;
+        width: 100%;
+        padding-left: 8px;
+    }
+</style>
+
+
+<ion-header>
+
+    <ion-navbar color="primary">
+        <ion-title>Profile Form</ion-title>
+        <ion-buttons end>
+            <button ion-button (click)="close()">
+                <ion-icon name="close"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <form #f (ngSubmit)="save()">
+        <ion-item-group>
+            <ion-avatar class="avatar">
+                <img src="assets/imgs/face-placeholder.png"/>
+            </ion-avatar>
+
+
+            <!--name-->
+            <ion-item>
+                <ion-input type="text"
+                           name="name"
+                           [(ngModel)]="profileDTO.name"
+                           placeholder="Name"></ion-input>
+            </ion-item>
+
+            <!--official id-->
+            <ion-item>
+                <ion-input type="text"
+                           name="officialId"
+                           [(ngModel)]="profileDTO.officialId"
+                           placeholder="Office Id"></ion-input>
+            </ion-item>
+
+            <!--select blood group-->
+            <ion-item>
+                <ion-select class="select"
+                            name="bloodGroup"
+                            [(ngModel)]="profileDTO.bloodGroup"
+                            placeholder="Blood Group">
+                    <ion-option [value]="bloodGroup" *ngFor="let bloodGroup of bloodGroups">
+                        {{bloodGroup}}
+                    </ion-option>
+                </ion-select>
+            </ion-item>
+
+            <!--datetime birthday-->
+            <ion-item>
+                <ion-datetime displayFormat="YYYY/MM/DD"
+                              name="birthday"
+                              [(ngModel)]="profileDTO.birthday"
+                              placeholder="Birthday">
+                </ion-datetime>
+            </ion-item>
+
+
+        </ion-item-group>
+
+
+        <!--in charge-->
+
+        <ion-item-group style="width: 100%">
+            <ion-list-header color="light">In Charge</ion-list-header>
+
+            <!--select office-->
+            <ion-item>
+                <ion-select class="select"
+                            name="inCharge[officeId]"
+                            [(ngModel)]="profileDTO.inCharge.officeId"
+                            placeholder="Select Office">
+                    <ion-option *ngFor="let office of offices | async" [value]="office.id">{{office.name}}</ion-option>
+                </ion-select>
+            </ion-item>
+
+            <!--select department-->
+            <ion-item>
+                <ion-select class="select"
+                            name="inCharge[departmentId]"
+                            [(ngModel)]="profileDTO.inCharge.departmentId"
+                            placeholder="Select Department">
+                    <ion-option *ngFor="let department of departments | async" [value]="department.id">{{department.name}}
+                    </ion-option>
+                </ion-select>
+            </ion-item>
+
+            <!--select designation-->
+            <ion-item>
+                <ion-select class="select"
+                            name="inCharge[designationId]"
+                            [(ngModel)]="profileDTO.inCharge.designationId"
+                            placeholder="Designation">
+                    <ion-option *ngFor="let designation of designations | async" [value]="designation.id">{{designation.name}}
+                    </ion-option>
+                </ion-select>
+            </ion-item>
+
+            <ion-item>
+                <ion-label>Has additional charge?</ion-label>
+
+                <ion-checkbox item-end [checked]="profileDTO.hasAdditionalCharge"
+                              (click)="profileDTO.hasAdditionalCharge = !profileDTO.hasAdditionalCharge">
+                </ion-checkbox>
+
+            </ion-item>
+        </ion-item-group>
+
+
+        <!--additional charge-->
+
+        <ion-item-group style="width: 100%" [hidden]="!profileDTO.hasAdditionalCharge">
+            <ion-list-header color="light">Additional Charge</ion-list-header>
+
+            <!--select office-->
+            <ion-item>
+                <ion-select class="select"
+                            name="additionalCharge[officeId]"
+                            [(ngModel)]="profileDTO.additionalCharge.officeId"
+                            placeholder="Select Office">
+                    <ion-option *ngFor="let office of offices | async" [value]="office.id">{{office.name}}</ion-option>
+                </ion-select>
+            </ion-item>
+
+            <!--select department-->
+            <ion-item>
+                <ion-select class="select"
+                            name="additionalCharge[departmentId]"
+                            [(ngModel)]="profileDTO.additionalCharge.departmentId"
+                            placeholder="Select Department">
+                    <ion-option *ngFor="let department of departments | async" [value]="department.id">{{department.name}}
+                    </ion-option>
+                </ion-select>
+            </ion-item>
+
+            <!--select designation-->
+            <ion-item>
+                <ion-select class="select"
+                            name="additionalCharge[designationId]"
+                            [(ngModel)]="profileDTO.additionalCharge.designationId"
+                            placeholder="Designation">
+                    <ion-option *ngFor="let designation of designations | async" [value]="designation.id">{{designation.name}}
+                    </ion-option>
+                </ion-select>
+            </ion-item>
+
+        </ion-item-group>
+
+        <!--contact-->
+        <ion-item-group>
+            <ion-list-header color="light">Contact</ion-list-header>
+
+            <!--mobile-->
+            <ion-input type="text"
+                       name="mobile"
+                       [(ngModel)]="profileDTO.mobile"
+                       placeholder="Mobile No"></ion-input>
+
+        </ion-item-group>
+
+        <!--address-->
+        <ion-item-group>
+            <ion-list-header color="light">Address</ion-list-header>
+
+            <!--present address-->
+            <ion-input type="text"
+                       name="address[present]"
+                       [(ngModel)]="profileDTO.address.present"
+                       placeholder="Present Address"></ion-input>
+
+            <!--permanent-->
+            <ion-input type="text"
+                       name="address[permanent]"
+                       [(ngModel)]="profileDTO.address.permanent"
+                       placeholder="Permanent Address"></ion-input>
+
+        </ion-item-group>
+
+        <button ion-button
+                type="submit"
+                color="primary"
+                block>Save
+        </button>
+    </form>
+
+</ion-content>

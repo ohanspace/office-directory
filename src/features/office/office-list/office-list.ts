@@ -5,6 +5,7 @@ import {OfficeController} from "../../../core/controllers/office-controller";
 import {OfficeSaveModalPage} from "../office-save-modal/office-save-modal";
 import {OfficeDTO} from "../../../core/models/office.dto";
 import {OfficeFactory} from "../../../core/factory/office-factory";
+import {OfficePage} from "../office/office";
 
 @Component({
     selector: 'page-office-list',
@@ -21,14 +22,18 @@ export class OfficeListPage {
 
         this.officeCtrl.getAllOffices$().subscribe(offices => {
             this.offices = offices;
-            console.log(this.offices);
+            //console.log(this.offices);
         });
+    }
+
+    openOffice(officeId: string) {
+        this.navCtrl.push(OfficePage, {officeId: officeId});
     }
 
     reorderItems(indexes) {
         this.offices = reorderArray(this.offices, indexes);
         this.officeCtrl.reorderOffices(this.offices, indexes.from, indexes.to);
-        console.log(indexes);
+        //console.log(indexes);
     }
 
 

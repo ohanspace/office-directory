@@ -22,11 +22,11 @@
         </ion-avatar>
         <h2>{{profile.name}}</h2>
         <p>
-            <span>{{profile.post.designation.name}}</span>
-            <span>, {{profile.post.department.name}}</span>
+            <span>{{profile.inCharge.designation.name}}</span>
+            <span>, {{profile.inCharge.department.name}}</span>
         </p>
-        <p>{{profile.post.office.name}}</p>
-        <ion-badge color="light">Blood Group A-</ion-badge>
+        <p>{{profile.inCharge.office.name}}</p>
+        <ion-badge color="light">Blood Group {{profile.bloodGroup}}</ion-badge>
     </ion-item>
 
 
@@ -57,27 +57,10 @@
 
     <ion-item-group style="width: 100%">
         <ion-list-header color="light">Contact</ion-list-header>
-        <ion-item (click)="callToNumber('01922503521')">
-            01922503521
+        <ion-item (click)="callToNumber(profile.mobile)">
+            {{profile.mobile}}
             <p>mobile</p>
             <ion-icon name="ios-call-outline" item-right></ion-icon>
-        </ion-item>
-        <ion-item>
-            031663321
-            <p>office</p>
-            <ion-icon name="ios-call-outline" item-right></ion-icon>
-        </ion-item>
-
-        <ion-item>
-            borhan.chittagong@gmail.com
-            <p>email</p>
-            <ion-icon name="ios-mail-outline" item-right></ion-icon>
-        </ion-item>
-
-        <ion-item>
-            881256548
-            <p>fax</p>
-            <ion-icon name="ios-print-outline" item-right></ion-icon>
         </ion-item>
 
 
@@ -85,12 +68,12 @@
     <ion-item-group style="width: 100%">
         <ion-list-header color="light">Address</ion-list-header>
         <ion-item>
-            Jamalkhan, chittagong
+            {{profile.address.present}}
             <p>present address</p>
             <ion-icon name="ios-home-outline" item-right></ion-icon>
         </ion-item>
         <ion-item>
-            Banskhali, chittagong
+            {{profile.address.permanent}}
             <p>permanent address</p>
             <ion-icon name="ios-home-outline" item-right></ion-icon>
         </ion-item>

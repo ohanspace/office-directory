@@ -10,7 +10,7 @@
 <ion-content padding>
     <ion-item-group reorder="true" (ionItemReorder)="reorderItems($event)">
         <ion-item *ngFor="let office of offices">
-            <ion-card>
+            <ion-card (click)="openOffice(office.id)">
 
                 <ion-card-header text-wrap>
                     {{office.name}}

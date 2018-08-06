@@ -6,6 +6,7 @@ import {Observable} from "rxjs/Observable";
 import {Office} from "../models/office";
 import {Department} from "../models/department";
 import {Designation} from "../models/designation";
+import {Profile} from "../models/profile";
 
 export abstract class DataRepository {
     readonly officeTypes = ['Corporate', 'Power Plant', 'Project'];
@@ -14,12 +15,12 @@ export abstract class DataRepository {
     }
 
     abstract getAllOffices$(): Observable<Office[]>;
-    abstract getOfficeById$(officeId: string): Observable<OfficeDTO>;
+    abstract getOfficeById$(officeId: string): Observable<Office>;
     abstract saveOffice(officeDTO: OfficeDTO): Promise<void>;
     abstract removeOffice(officeId: string): Promise<void>;
 
     abstract getAllDepartments$(): Observable<Department[]>;
-    abstract getDepartmentById$(departmentId: string): Observable<DepartmentDTO>;
+    abstract getDepartmentById$(departmentId: string): Observable<Department>;
     abstract saveDepartment(departmentDTO: DepartmentDTO): Promise<void>;
     abstract removeDepartment(departmentId: string): Promise<void>;
 
@@ -28,10 +29,11 @@ export abstract class DataRepository {
     abstract saveDesignation(designationDTO: DesignationDTO): Promise<void>;
     abstract removeDesignation(designationId: string): Promise<void>;
 
-    abstract getAllProfiles$(): Observable<ProfileDTO[]>;
-    abstract getAllProfilesByFilter$(officeId?: string, departmentId?: string, designationId?: string ): Observable<ProfileDTO[]>;
-    abstract getProfileById$(profileId: string): Observable<ProfileDTO>;
-    abstract getProfileByMobile$(mobile: string): Observable<ProfileDTO>;
-    abstract getProfilesByOfficeId$(officeId: string): Observable<ProfileDTO[]>;
+    abstract getAllProfiles$(): Observable<Profile[]>;
+    abstract getAllProfilesByFilter$(officeId?: string, departmentId?: string, designationId?: string ): Observable<Profile[]>;
+    abstract getProfileById$(profileId: string): Observable<Profile>;
+    abstract getProfileByMobile$(mobile: string): Observable<Profile>;
+    abstract getProfilesByOfficeId$(officeId: string): Observable<Profile[]>;
     abstract saveProfile(profileDTO: ProfileDTO): Promise<void>;
+    abstract removeProfile(profileId: string): Promise<void>;
 }

@@ -1,0 +1,63 @@
+<style>
+    .profile-cover {
+        height: 140px;
+        background-size: cover;
+        background-image: url("assets/imgs/profile-cover.jpg");
+        text-align: center;
+    }
+
+    .transbox {
+        height: 100%;
+        background-color: #0c0303;
+        opacity: 0.6;
+        filter: alpha(opacity=60);
+
+    }
+
+    .profile-cover .title {
+        position: relative;
+        top: 28%;
+        color: white;
+        font-weight: bold;
+        font-size: 2em;
+    }
+
+    .profile-cover .subtitle {
+        position: relative;
+        top: 25%;
+        color: white;
+        font-weight: bold;
+        font-size: 1.4em;
+    }
+</style>
+
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>office</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+    <!--batch cover-->
+    <ion-card style="margin: 0px; width: 100%">
+        <div class="profile-cover">
+            <div class="transbox">
+                <h1 class="title">North West Power</h1>
+                <h2 class="subtitle">{{office?.name}}
+                </h2>
+            </div>
+        </div>
+    </ion-card>
+
+    <profile-list [profiles]="office?.profiles"></profile-list>
+
+    <ion-fab bottom="" right="">
+        <button ion-fab mini (click)="addNewProfile()">
+            <ion-icon name="md-add"></ion-icon>
+        </button>
+    </ion-fab>
+
+</ion-content>

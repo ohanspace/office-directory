@@ -1,4 +1,19 @@
-<!-- Generated template for the ProfileListComponent component -->
-<div>
-  {{text}}
-</div>
+<ion-list>
+    <ion-item *ngFor="let profile of profiles"
+              (click)="openProfile(profile.id)">
+        <ion-avatar item-start>
+            <img src="assets/imgs/face-placeholder.png"/>
+        </ion-avatar>
+        <h2>{{profile.name}}</h2>
+        <p>{{profile.inCharge.designation.name}}</p>
+        <p text-wrap>{{profile.inCharge.office.name}}</p>
+
+        <!--actions-->
+        <div item-end>
+            <ion-icon name="create"
+                      (click)="editProfile(profile); $event.stopPropagation()"></ion-icon>
+            <ion-icon name="close"
+                      (click)="removeProfileAlert(profile.id); $event.stopPropagation()"></ion-icon>
+        </div>
+    </ion-item>
+</ion-list>
