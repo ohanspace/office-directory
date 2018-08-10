@@ -3,15 +3,12 @@ import {ErrorHandler, NgModule} from '@angular/core';
 import {IonicApp, IonicErrorHandler, IonicModule} from 'ionic-angular';
 
 import {MyApp} from './app.component';
-import {HomePage} from '../pages/home/home';
 
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
 import {ComponentsModule} from "../components/components.module";
 import {ProfilePage} from "../features/profile/profile/profile";
-import {OfficeManagePage} from "../pages/office-manage/office-manage";
 import {MapValuesPipe} from "../pipes/map-values/map-values";
-import {ProfileListPage} from "../pages/profile-list/profile-list";
 
 import {CallNumber} from "@ionic-native/call-number";
 import {Contacts} from "@ionic-native/contacts";
@@ -25,16 +22,15 @@ import {DesignationListPage} from "../features/designation/designation-list/desi
 import {DesignationSaveModalPage} from "../features/designation/designation-save-modal/designation-save-modal";
 import {OfficeSaveModalPage} from "../features/office/office-save-modal/office-save-modal";
 import {ProfileFormModalPage} from "../features/profile/profile-form-modal/profile-form-modal";
+import {ProfileFilterSettings} from "../features/popovers/profile-filter-settings";
 
 @NgModule({
     declarations: [
         MyApp,
         MapValuesPipe,
-        HomePage,
         ProfilePage,
         ProfileFormModalPage,
-        ProfileListPage,
-        OfficeManagePage,
+        ProfileFilterSettings,
         OfficeListPage,
         OfficeSaveModalPage,
         OfficePage,
@@ -53,11 +49,9 @@ import {ProfileFormModalPage} from "../features/profile/profile-form-modal/profi
     bootstrap: [IonicApp],
     entryComponents: [
         MyApp,
-        HomePage,
         ProfilePage,
         ProfileFormModalPage,
-        OfficeManagePage,
-        ProfileListPage,
+        ProfileFilterSettings,
         OfficeListPage,
         OfficeSaveModalPage,
         OfficePage,

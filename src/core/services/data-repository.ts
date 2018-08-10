@@ -30,7 +30,7 @@ export abstract class DataRepository {
     abstract removeDesignation(designationId: string): Promise<void>;
 
     abstract getAllProfiles$(): Observable<Profile[]>;
-    abstract getAllProfilesByFilter$(officeId?: string, departmentId?: string, designationId?: string ): Observable<Profile[]>;
+    abstract getProfilesByFilters$(officeId?: string, departmentId?: string, designationId?: string ): Observable<Profile[]>;
     abstract getProfileById$(profileId: string): Observable<Profile>;
     abstract getProfileByMobile$(mobile: string): Observable<Profile>;
     abstract getProfilesByOfficeId$(officeId: string): Observable<Profile[]>;

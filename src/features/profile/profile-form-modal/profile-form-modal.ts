@@ -3,8 +3,6 @@ import {NavController, NavParams, ViewController} from 'ionic-angular';
 import {ProfileDTO} from "../../../core/models/profile.dto";
 import {OfficeController} from "../../../core/controllers/office-controller";
 import {ProfileController} from "../../../core/controllers/profile-controller";
-import {Designation} from "../../../core/models/designation";
-import {Department} from "../../../core/models/department";
 
 @Component({
     selector: 'page-profile-form-modal',

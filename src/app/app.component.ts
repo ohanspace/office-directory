@@ -3,9 +3,6 @@ import {Nav, Platform} from 'ionic-angular';
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
 
-import {HomePage} from '../pages/home/home';
-import {OfficeManagePage} from "../pages/office-manage/office-manage";
-import {ProfileListPage} from "../pages/profile-list/profile-list";
 import {OfficeListPage} from "../features/office/office-list/office-list";
 import {DepartmentListPage} from "../features/department/department-list/department-list";
 import {DesignationListPage} from "../features/designation/designation-list/designation-list";
@@ -30,9 +27,6 @@ export class MyApp {
         { title: 'Office List', component: OfficeListPage },
         { title: 'Designation List', component: DesignationListPage },
         { title: 'Department List', component: DepartmentListPage },
-        { title: 'Office Manage', component: OfficeManagePage },
-        { title: 'Profile List', component: ProfileListPage },
-        { title: 'Home', component: HomePage },
     ];
 
   }

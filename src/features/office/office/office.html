@@ -35,6 +35,11 @@
 
     <ion-navbar>
         <ion-title>office</ion-title>
+        <ion-buttons end>
+            <button ion-button (click)="showFilterSettings($event)">
+                <ion-icon name="funnel"></ion-icon>
+            </button>
+        </ion-buttons>
     </ion-navbar>
 
 </ion-header>
@@ -52,7 +57,7 @@
         </div>
     </ion-card>
 
-    <profile-list [profiles]="office?.profiles"></profile-list>
+    <profile-list [profiles]="profiles"></profile-list>
 
     <ion-fab bottom="" right="">
         <button ion-fab mini (click)="addNewProfile()">

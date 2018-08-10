@@ -70,8 +70,19 @@ export class FirebaseDataRepository extends DataRepository {
     }
 
 
-    getAllProfilesByFilter$(officeId?: string, departmentId?: string, designationId?: string): Observable<Profile[]> {
-        return undefined;
+    getProfilesByFilters$(filterOptions: any): Observable<Profile[]> {
+        return this.afDb.collection('profiles', ref => {
+            let query: firebase.firestore.CollectionReference | firebase.firestore.Query = ref;
+            if (filterOptions.bloodGroup) query = query.where('bloodGroup','==',filterOptions.bloodGroup);
+            if (filterOptions.officeId) query = query.where('inCharge.office.id','==', filterOptions.officeId);
+            if (filterOptions.designationId) query = query.where('inCharge.designation.id','==', filterOptions.designationId);
+            if (filterOptions.departmentId) query = query.where('inCharge.department.id','==', filterOptions.departmentId);
+            return query;
+        }).valueChanges().map(dataArray => {
+            return dataArray.map(data => {
+                return this.materializeProfile(data);
+            });
+        });
     }
 
     removeProfile(profileId: string): Promise<void> {

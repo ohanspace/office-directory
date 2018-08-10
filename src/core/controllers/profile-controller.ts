@@ -21,6 +21,10 @@ export class ProfileController {
         return this.repo.getProfileById$(profileId);
     }
 
+    getProfilesByFilters$(filterOptions: any): Observable<Profile[]> {
+        return this.repo.getProfilesByFilters$(filterOptions);
+    }
+
     saveProfile(profileDTO: ProfileDTO): Promise<void> {
         return this.repo.saveProfile(profileDTO);
     }

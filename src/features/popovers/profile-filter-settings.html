@@ -1,0 +1,62 @@
+<style>
+    ion-select {
+        max-width: 100% !important;
+        width: 100%;
+        padding-left: 8px;
+    }
+</style>
+<ion-item-group padding>
+    <ion-list-header>Filters</ion-list-header>
+
+    <!--select blood group-->
+    <ion-item>
+        <ion-select class="select"
+                    name="bloodGroup"
+                    [(ngModel)]="filterOptions.bloodGroup"
+                    placeholder="Blood Group">
+            <ion-option [value]="bloodGroup" *ngFor="let bloodGroup of bloodGroups">
+                {{bloodGroup}}
+            </ion-option>
+        </ion-select>
+    </ion-item>
+
+    <!--select office-->
+    <ion-item>
+        <ion-select class="select"
+                    name="inCharge[officeId]"
+                    [(ngModel)]="filterOptions.officeId"
+                    placeholder="Select Office">
+            <ion-option *ngFor="let office of offices | async" [value]="office.id">{{office.name}}</ion-option>
+        </ion-select>
+    </ion-item>
+
+    <!--select department-->
+    <ion-item>
+        <ion-select class="select"
+                    name="inCharge[departmentId]"
+                    [(ngModel)]="filterOptions.departmentId"
+                    placeholder="Select Department">
+            <ion-option *ngFor="let department of departments | async" [value]="department.id">{{department.name}}
+            </ion-option>
+        </ion-select>
+    </ion-item>
+
+    <!--select designation-->
+    <ion-item>
+        <ion-select class="select"
+                    name="inCharge[designationId]"
+                    [(ngModel)]="filterOptions.designationId"
+                    placeholder="Designation">
+            <ion-option *ngFor="let designation of designations | async" [value]="designation.id">{{designation.name}}
+            </ion-option>
+        </ion-select>
+    </ion-item>
+
+    <button ion-button
+            type="submit"
+            (click)="apply()"
+            color="primary"
+            block>Apply
+    </button>
+
+</ion-item-group>
