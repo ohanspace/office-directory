@@ -41,9 +41,9 @@
             </ion-col>
 
 
-            <ion-col class="action-col" style=" border-right: 1px solid lightgrey">
-                <ion-icon name="md-heart"></ion-icon>
-                <span style="display: block">favorite</span>
+            <ion-col class="action-col" style=" border-right: 1px solid lightgrey" (click)="changeFavorite()">
+                <ion-icon name="{{isFavorite? 'md-heart' : 'md-heart-outline'}}"></ion-icon>
+                <span style="display: block">{{isFavorite? 'unfavorite' : 'favorite'}}</span>
             </ion-col>
 
             <ion-col class="action-col">

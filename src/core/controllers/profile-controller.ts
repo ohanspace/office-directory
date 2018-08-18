@@ -21,6 +21,8 @@ export class ProfileController {
         return this.repo.getProfileById$(profileId);
     }
 
+
+
     getProfilesByFilters$(filterOptions: any): Observable<Profile[]> {
         return this.repo.getProfilesByFilters$(filterOptions);
     }
@@ -32,6 +34,29 @@ export class ProfileController {
     removeProfile(profileId: string): Promise<void> {
         return this.repo.removeProfile(profileId);
     }
+
+
+
+
+
+    getProfileByUID$(uid: string): Observable<Profile> {
+        return this.repo.getProfileByUID$(uid);
+    }
+
+    isAdmin$(uid: string): Observable<boolean> {
+        return this.repo.isAdmin$(uid);
+    }
+
+    getProfileByPhone$(phone: string): Observable<Profile> {
+        return this.repo.getProfileByMobile$(phone);
+    }
+
+    updateUID(profileId: string, uid: string): Promise<void> {
+        return this.repo.updateUID(profileId,uid);
+    }
+
+
+
 
 
 

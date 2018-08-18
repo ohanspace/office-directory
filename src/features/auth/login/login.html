@@ -1,0 +1,58 @@
+<style>
+    ion-item {
+        margin-top: 2em;
+    }
+    button {
+        margin-top: 2em;
+    }
+</style>
+
+<ion-header>
+
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-row justify-content-center align-items-center>
+        <img src="assets/imgs/logo.png" height="140px" width="140px">
+    </ion-row>
+
+    <div *ngIf="!verificationId">
+        <ion-item>
+            <ion-label stacked>phone</ion-label>
+            <ion-input type="tel"
+                       name="phone"
+                       required
+                       [(ngModel)]="phone">
+            </ion-input>
+        </ion-item>
+
+        <button ion-button
+                type="button"
+                block round outline large
+                (click)="loginWithPhone()">
+            Login
+        </button>
+    </div>
+
+
+    <div *ngIf="verificationId">
+        <ion-item>
+            <ion-label stacked>verification code</ion-label>
+            <ion-input type="text"
+                       name="code"
+                       [(ngModel)]="code">
+            </ion-input>
+        </ion-item>
+
+
+        <button ion-button
+                type="button"
+                (click)="verifyPhone()"
+                round outline large>
+            Verify
+        </button>
+    </div>
+
+</ion-content>

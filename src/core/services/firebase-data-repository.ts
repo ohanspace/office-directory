@@ -13,7 +13,9 @@ import {Designation} from "../models/designation";
 import "rxjs-compat/add/operator/first";
 import "rxjs-compat/add/operator/take";
 import {Profile} from "../models/profile";
+import {FavoriteProfile} from "../models/user";
 
+const FAVORITES_PATH = 'favorites';
 @Injectable()
 export class FirebaseDataRepository extends DataRepository {
 
@@ -66,7 +68,13 @@ export class FirebaseDataRepository extends DataRepository {
     }
 
     getProfileByMobile$(mobile: string): Observable<Profile> {
-        return undefined;
+        return this.afDb.collection('profiles',
+            ref => ref.where('mobile', '==', mobile) )
+            .valueChanges()
+            .map(profileDTOs => {
+                if (profileDTOs.length > 0) return this.materializeProfile(profileDTOs[0]);
+                else return null;
+            });
     }
 
 
@@ -142,6 +150,39 @@ export class FirebaseDataRepository extends DataRepository {
             }
         }
     }
+
+
+
+    getProfileByUID$(uid: string): Observable<Profile> {
+        return this.afDb.collection('profiles',
+            ref => ref.where('uid', '==', uid) )
+            .valueChanges()
+            .map(profileDTOs => {
+                if (profileDTOs.length > 0) return this.materializeProfile(profileDTOs[0]);
+                else return null;
+            });
+    }
+
+    isAdmin$(uid: string): Observable<boolean> {
+        return this.afDb.collection('roles')
+            .doc('admins').valueChanges().map(data => {
+                if (uid in data) return data[uid];
+                else return false;
+            });
+    }
+
+    updateUID(profileId: string, uid: string) {
+        return this.afDb.collection('profiles').doc(profileId).set({uid: uid}, {merge: true});
+    }
+
+
+
+
+
+
+
+
+
 
 
     getAllOffices$(): Observable<Office[]> {
@@ -272,6 +313,35 @@ export class FirebaseDataRepository extends DataRepository {
             [designationId]: firebase.firestore.FieldValue.delete()
         });
     }
+
+
+
+
+
+    // /favorites/<userId>/favorites/<favProfileId>
+    getFavoriteProfiles(uid: string): Observable<FavoriteProfile[]> {
+        return this.afDb.collection(FAVORITES_PATH)
+            .doc(uid)
+            .collection<FavoriteProfile>(FAVORITES_PATH)
+            .valueChanges();
+    }
+
+    addToFavoriteProfiles(uid: string, profile: FavoriteProfile): Promise<void> {
+        return this.afDb.collection(FAVORITES_PATH)
+            .doc(uid)
+            .collection(FAVORITES_PATH)
+            .doc<FavoriteProfile>(profile.id)
+            .set(Object.assign({}, profile));
+    }
+
+    removeFavoriteProfile(uid: string, favProfileId: string): Promise<void> {
+        return this.afDb.collection(FAVORITES_PATH)
+            .doc(uid)
+            .collection(FAVORITES_PATH)
+            .doc(favProfileId)
+            .delete();
+    }
+
 
 
 

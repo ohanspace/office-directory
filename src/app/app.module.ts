@@ -8,7 +8,6 @@ import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
 import {ComponentsModule} from "../components/components.module";
 import {ProfilePage} from "../features/profile/profile/profile";
-import {MapValuesPipe} from "../pipes/map-values/map-values";
 
 import {CallNumber} from "@ionic-native/call-number";
 import {Contacts} from "@ionic-native/contacts";
@@ -23,11 +22,14 @@ import {DesignationSaveModalPage} from "../features/designation/designation-save
 import {OfficeSaveModalPage} from "../features/office/office-save-modal/office-save-modal";
 import {ProfileFormModalPage} from "../features/profile/profile-form-modal/profile-form-modal";
 import {ProfileFilterSettings} from "../features/popovers/profile-filter-settings";
+import {LoginPage} from "../features/auth/login/login";
+import {MenuPage} from "../navigation/menu/menu";
+import {TabsPage} from "../navigation/tabs/tabs";
+import {FavoritesPage} from "../features/favorites/favorites";
 
 @NgModule({
     declarations: [
         MyApp,
-        MapValuesPipe,
         ProfilePage,
         ProfileFormModalPage,
         ProfileFilterSettings,
@@ -37,7 +39,11 @@ import {ProfileFilterSettings} from "../features/popovers/profile-filter-setting
         DepartmentListPage,
         DepartmentSaveModalPage,
         DesignationListPage,
-        DesignationSaveModalPage
+        DesignationSaveModalPage,
+        LoginPage,
+        MenuPage,
+        TabsPage,
+        FavoritesPage
     ],
     imports: [
         BrowserModule,
@@ -58,14 +64,18 @@ import {ProfileFilterSettings} from "../features/popovers/profile-filter-setting
         DepartmentListPage,
         DepartmentSaveModalPage,
         DesignationListPage,
-        DesignationSaveModalPage
+        DesignationSaveModalPage,
+        LoginPage,
+        MenuPage,
+        TabsPage,
+        FavoritesPage
     ],
     providers: [
         StatusBar,
         SplashScreen,
         {provide: ErrorHandler, useClass: IonicErrorHandler},
         CallNumber,
-        Contacts,
+        Contacts
     ]
 })
 export class AppModule {

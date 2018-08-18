@@ -1,0 +1,35 @@
+<ion-menu [content]="content">
+  <ion-header>
+    <ion-item style="background-image: url('assets/imgs/drawer-background.png');">
+      <ion-avatar>
+        <img src="assets/imgs/face-placeholder.png">
+      </ion-avatar>
+
+      <h2 style="color: white">{{userProfile?.name}}</h2>
+      <p style="color: white">{{userProfile?.primaryEmail}}</p>
+      <p style="color: white">{{userProfile?.primaryPhone}}</p>
+    </ion-item>
+  </ion-header>
+
+  <ion-content>
+    <ion-list>
+      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        <ion-icon item-start [name]="p.icon" [color]="isActive(p)"></ion-icon>
+        {{p.title}}
+      </button>
+    </ion-list>
+  </ion-content>
+
+  <ion-footer>
+    <ion-list>
+      <button ion-item (click)="logout()">
+        <ion-icon item-start name="md-log-out"></ion-icon>
+        Logout
+      </button>
+    </ion-list>
+  </ion-footer>
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

@@ -1,0 +1,63 @@
+{
+  "project_info": {
+    "project_number": "454008007954",
+    "firebase_url": "https://northwestpowerdirectory.firebaseio.com",
+    "project_id": "northwestpowerdirectory",
+    "storage_bucket": "northwestpowerdirectory.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:454008007954:android:107189c06cab0031",
+        "android_client_info": {
+          "package_name": "com.ohanspace.nwpgcl"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "454008007954-40du21atu1a7ddug8ojaog9a1k77lcbk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ohanspace.nwpgcl",
+            "certificate_hash": "c9e5ef27bc6599dd18efb887e8dc686af43ea89c"
+          }
+        },
+        {
+          "client_id": "454008007954-oo2s73ri3vpv7jj6qgd4v9bolrm86u70.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ohanspace.nwpgcl",
+            "certificate_hash": "8dfee2a38869da764f26fef38ca2d73eeeec7483"
+          }
+        },
+        {
+          "client_id": "454008007954-7qc4q9a4um2hiu9bs5l14vei22bo0g1u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPPBe-6nPgxiPVRBbtMC2GtgzTR3KmSZo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "454008007954-7qc4q9a4um2hiu9bs5l14vei22bo0g1u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

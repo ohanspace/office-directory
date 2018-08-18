@@ -7,6 +7,7 @@ import {Office} from "../models/office";
 import {Department} from "../models/department";
 import {Designation} from "../models/designation";
 import {Profile} from "../models/profile";
+import {FavoriteProfile} from "../models/user";
 
 export abstract class DataRepository {
     readonly officeTypes = ['Corporate', 'Power Plant', 'Project'];
@@ -32,8 +33,16 @@ export abstract class DataRepository {
     abstract getAllProfiles$(): Observable<Profile[]>;
     abstract getProfilesByFilters$(officeId?: string, departmentId?: string, designationId?: string ): Observable<Profile[]>;
     abstract getProfileById$(profileId: string): Observable<Profile>;
+    abstract getProfileByUID$(uid: string): Observable<Profile>;
     abstract getProfileByMobile$(mobile: string): Observable<Profile>;
     abstract getProfilesByOfficeId$(officeId: string): Observable<Profile[]>;
     abstract saveProfile(profileDTO: ProfileDTO): Promise<void>;
+    abstract updateUID(profileId: string, uid: string);
     abstract removeProfile(profileId: string): Promise<void>;
+
+    abstract isAdmin$(uid: string): Observable<boolean>;
+
+    abstract getFavoriteProfiles(uid: string): Observable<FavoriteProfile[]>;
+    abstract addToFavoriteProfiles(uid: string, profile: FavoriteProfile): Promise<void>;
+    abstract removeFavoriteProfile(uid: string, favProfileId: string): Promise<void>;
 }
